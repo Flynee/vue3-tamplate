@@ -14,5 +14,14 @@ export default {
     components: {
         HelloWorld,
     },
+    setup() {
+        const a = {
+            k: 1,
+        };
+        const b = 2;
+        a.k ??= b;
+
+        console.log(a.k, a.name ?? 1, a?.value || 3);
+    },
 };
 </script>
