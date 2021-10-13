@@ -23,8 +23,8 @@ export default {
         const str = `
             hellow
         `;
-        console.log(str);
-        console.log(a.k, a.name ?? 1, a?.value || 3);
+        console.error(str);
+        console.error(a.k, a.name ?? 1, a?.value || 3);
     },
 };
 </script>

@@ -21,6 +21,7 @@ module.exports = {
     indent: ['error', 4],
     'vue/html-indent': ['error', 4],
     'no-console': process.env.NODE_ENV === 'production' ? ["error", { allow: ["warn", "error"] }] : 'off',
+    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     'max-len': ['error', { 'code': 180 }],
     'vue/html-quotes': 'warn',
     'no-param-reassign': ['error', { 'props': false }],
