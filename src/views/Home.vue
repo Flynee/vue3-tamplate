@@ -20,7 +20,10 @@ export default {
         };
         const b = 2;
         a.k ??= b;
-
+        const str = `
+            hellow
+        `;
+        console.log(str);
         console.log(a.k, a.name ?? 1, a?.value || 3);
     },
 };

@@ -28,6 +28,10 @@ npm run lint
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
+
+
+
+
 # ES7
 1. Array.prototype.includes()
 
@@ -81,63 +85,99 @@ Atomics 对象提供了一组静态方法用来对 SharedArrayBuffer 对象进�
 
 ```
 
-ES9（2018）
+# ES9（2018）
+
 1. 异步迭代
-await可以和for...of循环一起使用，以串行的方式运行异步操作
-async function process(array) {
-  for await (let i of array) {
-    // doSomething(i);
+    await可以和for...of循环一起使用，以串行的方式运行异步操作
+
+  ``` javascript
+  async function process(array) {
+    for await (let i of array) {
+   // doSomething(i);
+    }
   }
-}
-复制代码
+  ```
+
 2. Promise.finally()
-Promise.resolve().then().catch(e => e).finally();
-复制代码
+
+  ``` javascript
+  Promise.resolve().then().catch(e => e).finally();
+  ```
+
+  
+
 3. Rest/Spread 属性
-const values = [1, 2, 3, 5, 6];
-console.log( Math.max(...values) ); // 6
-复制代码
+``` javascript
+  const values = [1, 2, 3, 5, 6];
+  console.log( Math.max(...values) ); // 6
+```
+
 4. 正则表达式命名捕获组
-const reg = /(?<year>[0-9]{4})-(?<month>[0-9]{2})-(?<day>[0-9]{2})/;
-const match = reg.exec('2021-02-23');
-复制代码
+
+``` javascript
+  const reg = /(?<year>[0-9]{4})-(?<month>[0-9]{2})-(?<day>[0-9]{2})/;
+  const match = reg.exec('2021-02-23');
+```
+
 5. 正则表达式反向断言
-(?=p)、(?<=p)  p 前面(位置)、p 后面(位置)
-(?!p)、(?<!p>) 除了 p 前面(位置)、除了 p 后面(位置)
-复制代码
+
+``` javascript
+  (?=p)、(?<=p)  p 前面(位置)、p 后面(位置)
+  (?!p)、(?<!p>) 除了 p 前面(位置)、除了 p 后面(位置)
+```
+
 6. 正则表达式dotAll模式
-正则表达式中点.匹配除回车外的任何单字符，标记s改变这种行为，允许行终止符的出现
-/hello.world/.test('hello\nworld'); // false
-复制代码
-ES10（2019）
-1. Array.flat()和Array.flatMap()
-flat()
-[1, 2, [3, 4]].flat(Infinity); // [1, 2, 3, 4]
-flatMap()
-[1, 2, 3, 4].flatMap(a => [a**2]); // [1, 4, 9, 16]
-复制代码
-2. String.trimStart()和String.trimEnd()
-去除字符串首尾空白字符
-复制代码
-3. String.prototype.matchAll
-matchAll（）为所有匹配的匹配对象返回一个迭代器
-const raw_arr = 'test1  test2  test3'.matchAll((/t(e)(st(\d?))/g));
-const arr = [...raw_arr];
-复制代码
-4. Symbol.prototype.description
-只读属性，回 Symbol 对象的可选描述的字符串。
-Symbol('description').description; // 'description'
-复制代码
-5. Object.fromEntries()
-返回一个给定对象自身可枚举属性的键值对数组
-// 通过 Object.fromEntries， 可以将 Map 转化为 Object:
-const map = new Map([ ['foo', 'bar'], ['baz', 42] ]);
-console.log(Object.fromEntries(map)); // { foo: "bar", baz: 42 }
-复制代码
-6. 可选 Catch
-ES11（2020）
+    正则表达式中点.匹配除回车外的任何单字符，标记s改变这种行为，允许行终止符的出现
+
+  ``` javascript
+  /hello.world/.test('hello\nworld'); // false
+  ```
+  ES10（2019）
+
+7. Array.flat()和Array.flatMap()
+
+``` javascript
+  flat()
+  [1, 2, [3, 4]].flat(Infinity); // [1, 2, 3, 4]
+  flatMap()
+  [1, 2, 3, 4].flatMap(a => [a**2]); // [1, 4, 9, 16]
+```
+
+8. String.trimStart()和String.trimEnd()
+    去除字符串首尾空白字符
+  ```
+
+9. String.prototype.matchAll
+  matchAll（）为所有匹配的匹配对象返回一个迭代器
+  
+  ``` javascript
+  const raw_arr = 'test1  test2  test3'.matchAll((/t(e)(st(\d?))/g));
+  const arr = [...raw_arr];
+  ```
+
+10. Symbol.prototype.description
+    只读属性，回 Symbol 对象的可选描述的字符串。
+
+  ``` javascript
+  Symbol('description').description; // 'description'
+  ```
+
+11. Object.fromEntries()
+      返回一个给定对象自身可枚举属性的键值对数组
+      // 通过 Object.fromEntries， 可以将 Map 转化为 Object:
+
+   ``` javascript
+   const map = new Map([ ['foo', 'bar'], ['baz', 42] ]);
+   console.log(Object.fromEntries(map)); // { foo: "bar", baz: 42 }
+   ```
+
+12. 可选 Catch
+# ES11（2020）
+
 1. Nullish coalescing Operator(空值处理)
-表达式在 ?? 的左侧 运算符求值为undefined或null，返回其右侧。
+   表达式在 ?? 的左侧 运算符求值为undefined或null，返回其右侧。
+   
+   ``` javascript
 
 let user = {
     u1: 0,
@@ -150,16 +190,18 @@ let u2 = user.u2 ?? '用户2'  // false
 let u3 = user.u3 ?? '用户3'  // 用户3
 let u4 = user.u4 ?? '用户4'  // 用户4
 let u5 = user.u5 ?? '用户5'  // ''
-复制代码
+```
 2. Optional chaining（可选链）
 ?.用户检测不确定的中间节点
-
+​``` javascript
 let user = {}
 let u1 = user.childer.name // TypeError: Cannot read property 'name' of undefined
 let u1 = user.childer?.name // undefined
-复制代码
+```
 3. Promise.allSettled
 返回一个在所有给定的promise已被决议或被拒绝后决议的promise，并带有一个对象数组，每个对象表示对应的promise结果
+
+``` javascript
 const promise1 = Promise.resolve(3);
 const promise2 = 42;
 const promise3 = new Promise((resolve, reject) => reject('我是失败的Promise_1'));
@@ -167,21 +209,19 @@ const promise4 = new Promise((resolve, reject) => reject('我是失败的Promise
 const promiseList = [promise1,promise2,promise3, promise4]
 Promise.allSettled(promiseList)
 .then(values=>{
-  console.log(values)
+    console.log(values)
 });
-复制代码
+```
 4. import()
 按需导入
-复制代码
+```
 5. 新基本数据类型BigInt
 任意精度的整数
-复制代码
+```
 6. globalThis
 浏览器：window
 worker：self
 node：global
-
-
 
 # ES12
 1. String.prototype.replaceAll()

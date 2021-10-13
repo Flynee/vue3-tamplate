@@ -17,10 +17,11 @@ module.exports = {
     spray: false,
   },
   rules: {
+
     indent: ['error', 4],
     'vue/html-indent': ['error', 4],
     'no-console': process.env.NODE_ENV === 'production' ? ["error", { allow: ["warn", "error"] }] : 'off',
-    'max-len': ['warn', { 'code': 500 }],
+    'max-len': ['error', { 'code': 180 }],
     'vue/html-quotes': 'warn',
     'no-param-reassign': ['error', { 'props': false }],
     'camelcase': 0,
@@ -29,6 +30,33 @@ module.exports = {
     'no-unused-expressions': ['error', { 'allowShortCircuit': true }],
     'no-restricted-globals': 'off',
     'class-methods-use-this': 'off',
+    "vue/order-in-components": [
+        "error",
+        {
+          "order": [
+            "el",
+            "name",
+            ["components", "directives", "filters"],
+            "extends",
+            "mixins",
+            "props",
+            "data",
+            "computed",
+            "watch",
+            "beforeCreate",
+            "created",
+            "beforeMount",
+            "mounted",
+            "beforeUpdate",
+            "updated",
+            "activated",
+            "deactivated",
+            "beforeDestroy",
+            "destroyed",
+            "methods",
+          ]
+        }
+      ],
   },
   overrides: [
     {
